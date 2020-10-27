@@ -1,0 +1,11 @@
+#root {
+  max-width: 1024px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+button,
+a {
+  cursor: pointer;
+}
