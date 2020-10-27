@@ -22,7 +22,8 @@ function Question() {
           '/api/questions.json',
         );
         const datas = result.data[0];
-        return setQuestion(datas);// eslint-disable-line
+        // eslint-disable-next-line
+        return setQuestion(datas);
       } catch (error) {
         console.error(error)
       }

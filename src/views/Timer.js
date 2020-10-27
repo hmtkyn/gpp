@@ -9,6 +9,7 @@ const Timer = () => {
 
 
   useEffect(() => {
+    // eslint-disable-next-line
     var timer;
     if (second) {
       timer = setTimeout(function () {
