@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1001,
+    "object": "/api/figure01.svg",
+    "title": "How can you create the above shape with an algorithm?",
+    "answer": [
+      "right",
+      "fill",
+      "right",
+      "bottom",
+      "left",
+      "left",
+      "fill",
+      "right",
+      "right",
+      "fill",
+      "bottom",
+      "left",
+      "left",
+      "right",
+      "fill",
+      "right"
+    ]
+  },
+  {
+    "id": 1002,
+    "object": "/api/figure02.svg",
+    "title": "How can you create the above shape with an algorithm?",
+    "answer": [
+      "right",
+      "fill",
+      "right",
+      "bottom",
+      "left",
+      "left",
+      "fill",
+      "right",
+      "right",
+      "fill",
+      "bottom",
+      "left",
+      "left",
+      "right",
+      "fill",
+      "right"
+    ]
+  }
+]
