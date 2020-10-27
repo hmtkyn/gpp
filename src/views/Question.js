@@ -14,15 +14,15 @@ function Question() {
   const { user } = useContext(UsersContext);
   const { question, answer, setQuestion } = useContext(QuestionContext);
 
-  useEffect(() => {
 
+  useEffect(() => {
     async function getData() {
       try {
         const result = await axios(
-          'http://localhost:3000/api/questions.json',
+          '/api/questions.json',
         );
         const datas = result.data[0];
-        return setQuestion(datas);
+        return setQuestion(datas);// eslint-disable-line
       } catch (error) {
         console.error(error)
       }

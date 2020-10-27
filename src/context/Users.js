@@ -6,9 +6,9 @@ import React, { createContext, useReducer } from 'react';
 const initialState = {
   user: {
     name: "",
-    country: ""
+    country: "",
+    totalTime: ""
   }
-
 };
 
 /**
