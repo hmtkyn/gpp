@@ -14,7 +14,7 @@ function ControlBox() {
 
   const { setAnswer, addAnswer, setTotalTime, question, answer } = useContext(QuestionContext);
 
-  const [localTime, setLocalTime] = useState({ second: 0, minute: 0, hour: 0 })
+  const [localTime, setLocalTime] = useState({ second: 0, minute: 0, hour: 0 });
   const [isActive, setIsActive] = useState(false);
   const [checkAnswer, setCheckAnswer] = useState(false);
   const [localAnswer, setLocalAnswer] = useState([]);
@@ -24,18 +24,18 @@ function ControlBox() {
     let intervalId;
     if (isActive) {
       intervalId = setInterval(() => {
-        setLocalTime({ ...localTime, second: localTime.second + 1 });
-        if (localTime.second >= 59) {
-          setLocalTime({ ...localTime, second: 0 });
-          setLocalTime({ ...localTime, minute: localTime.minute + 1 });
-          if (localTime.minute >= 59) {
-            setLocalTime({ ...localTime, minute: 0 });
-            setLocalTime({ ...localTime, hour: localTime.hour + 1 });
+        setLocalTime((prev) => ({ ...prev, second: prev.second + 1 }));
+        if (localTime.second === 59) {
+          setLocalTime((prev) => ({ ...prev, second: 0 }));
+          setLocalTime((prev) => ({ ...prev, minute: prev.minute + 1 }));
+          if (localTime.minute === 59) {
+            setLocalTime((prev) => ({ ...prev, minute: 0 }));
+            setLocalTime((prev) => ({ ...prev, hour: prev.hour + 1 }));
           };
         };
 
         setTotalTime(localTime);
-      }, 1000);
+      }, 10);
     };
     return () => clearInterval(intervalId);
 
