@@ -16,6 +16,11 @@
   height: 420px;
   padding: 4rem 0;
 }
+@media (max-width: 599px), (max-height: 599px) {
+  .login-form {
+    display: none;
+  }
+}
 .login-form h1 {
   font-size: 24px;
 }

@@ -2,13 +2,18 @@ import React, { useReducer, createContext } from 'react';
 
 // STATE
 const initialState = {
-  quesiton: {
+  question: {
     id: "",
     object: "",
     title: "",
     answer: []
   },
-  answer: []
+  answer: [],
+  totalTime: {
+    second: 0,
+    minute: 0,
+    hour: 0
+  }
 }
 
 // CONTEXT
@@ -18,7 +23,8 @@ export const QuestionContext = createContext(initialState);
 const ACTIONS = {
   SET_ANSWER: "set_answer",
   ADD_ANSWER: "add_answer",
-  SET_QUESTION: "set_question"
+  SET_QUESTION: "set_question",
+  SET_TOTALTIME: "set_totaltime"
 }
 
 // REDUCER
@@ -37,7 +43,12 @@ export const QuestionReducer = (state, action) => {
     case ACTIONS.SET_QUESTION:
       return {
         ...state,
-        quesiton: action.payload
+        question: action.payload
+      }
+    case ACTIONS.SET_TOTALTIME:
+      return {
+        ...state,
+        totalTime: action.payload
       }
     default:
       return state;
@@ -70,13 +81,22 @@ export const QuestionProvider = ({ children }) => {
     })
   }
 
+  function setTotalTime(totalTime) {
+    dispatch({
+      type: ACTIONS.SET_TOTALTIME,
+      payload: totalTime
+    })
+  }
+
   return (
     <QuestionContext.Provider value={{
       answer: state.answer,
       setAnswer,
       addAnswer,
-      question: state.quesiton,
-      setQuestion
+      question: state.question,
+      setQuestion,
+      totalTime: state.totalTime,
+      setTotalTime
     }}>
       {children}
     </QuestionContext.Provider>

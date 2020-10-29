@@ -13,7 +13,6 @@ function Login() {
   user.country = cCountry;
   const onSubmit = (e) => {
     e.preventDefault();
-
     setUser(user);
   }
 
@@ -40,13 +39,13 @@ function Login() {
           </div>
           {cName.length > 0 && cCountry.length > 0 ?
             <div className="form-row button">
-              <Link to="/questions">
+              <Link to="/question">
                 <button id="login-button">Sign in</button>
               </Link>
             </div>
             :
             <div className="form-row button disable">
-              <Link to="/questions">
+              <Link to="/question">
                 <button id="login-button" disabled>Sign in</button>
               </Link>
             </div>

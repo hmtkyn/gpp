@@ -12,8 +12,7 @@ import RenderAnswer from './../components/RenderAnswer';
 function Question() {
 
   const { user } = useContext(UsersContext);
-  const { question, answer, setQuestion } = useContext(QuestionContext);
-
+  const { question, answer, setQuestion, totalTime } = useContext(QuestionContext);
 
   useEffect(() => {
     async function getData() {
@@ -22,7 +21,6 @@ function Question() {
           '/api/questions.json',
         );
         const datas = result.data[0];
-        // eslint-disable-next-line
         return setQuestion(datas);
       } catch (error) {
         console.error(error)
@@ -30,11 +28,16 @@ function Question() {
     }
     getData();
 
-  }, []);
+  }, [setQuestion]);
 
   return (
     <>
-      <Header name={user.name} />
+      <Header
+        name={user.name}
+        hour={totalTime.hour < 10 ? '0' + totalTime.hour : totalTime.hour}
+        minute={totalTime.minute < 10 ? '0' + totalTime.minute : totalTime.minute}
+        second={totalTime.second < 10 ? '0' + totalTime.second : totalTime.second}
+      />
       <Notices />
       <div className="question">
         {/* Question */}
