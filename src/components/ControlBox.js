@@ -21,7 +21,6 @@ function ControlBox() {
   const [finishClick, setFinishClick] = useState(false);
 
   useEffect(() => {
-    console.log("useEffect START");
     let intervalId;
     if (isActive) {
       intervalId = setInterval(() => {
@@ -38,7 +37,6 @@ function ControlBox() {
         setTotalTime(localTime);
       }, 1000);
     };
-    console.log(localTime);
     return () => clearInterval(intervalId);
 
   }, [isActive, localTime]);
@@ -81,13 +79,11 @@ function ControlBox() {
 
   const startTimer = () => {
     setIsActive(!isActive);
-    console.log("başladı");
     setFinishClick(false);
   }
 
 
   const stopTimer = () => {
-    console.log("bitti");
     setIsActive(false);
     setTotalTime({ hour: 0, minute: 0, second: 0 });
     setCheckAnswer(matchAnswer(question.answer, answer));
