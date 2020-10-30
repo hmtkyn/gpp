@@ -35,7 +35,7 @@ function ControlBox() {
         };
 
         setTotalTime(localTime);
-      }, 10);
+      }, 1000);
     };
     return () => clearInterval(intervalId);
 
